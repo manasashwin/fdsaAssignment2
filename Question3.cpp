@@ -156,13 +156,7 @@ int main(){
             }
         }
     }
-    // for (Node* v : arr)
-    // {
-    //     if(v->left)
-    //         cout << v->left->data << " ";
-    // }
     
-    // printInorder(arr[0]);
     binaryTreeToBST(arr[0]);
     cout << endl << endl;
     int sum = 0;
