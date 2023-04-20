@@ -147,7 +147,13 @@ int main(){
         if(arr[index]->left != NULL){
             arr[index]->right = arr[edge];
         }else{
-            arr[index]->left = arr[edge];
+            if (arr[index]->right==NULL){
+                arr[index]->left = arr[edge];
+            }
+            else{
+                cout << "Too many nodes at index " << index << endl;
+                return 0;
+            }
         }
     }
     // for (Node* v : arr)
@@ -158,9 +164,7 @@ int main(){
     
     // printInorder(arr[0]);
     binaryTreeToBST(arr[0]);
-    // cout << endl << endl;
-    printInorder(arr[0]);
-    cout << endl;
+    cout << endl << endl;
     int sum = 0;
     EulerTour(arr[0], &sum);
     cout << sum << endl;

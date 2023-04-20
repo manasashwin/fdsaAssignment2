@@ -25,9 +25,11 @@ int main()
         }
         int i = 0;
         int balls = 0;
-        while(k-- && i<n){
-            balls += floor(log2(pq.top())+1);
+        while(k--){
+            int newBalls = pq.top();
+            balls += newBalls;
             pq.pop();
+            pq.push(floor(newBalls/2));
             i++;
         }
         cout << balls << endl;
