@@ -1,3 +1,24 @@
+/*
+    The user is asked to enter the total number of 
+    answer sheets (students) and their scores. For each answer sheet, the program 
+    checks whether the score is greater than 33 (the passing score). If it is, the 
+    score is added to a stack called answer_sheets. If it's not, the program calls 
+    a function called maxpunishment() to calculate the maximum possible punishment for that student.
+
+    The maxpunishment() function works by creating a second stack called s2 and emptying 
+    the answer_sheets stack into it. It then finds the maximum score in the s2 stack and 
+    removes it from the stack (to avoid counting it twice). Finally, it empties the s2 stack
+    back into the answer_sheets stack, except for the maximum score. The function returns the 
+    maximum score found. After all the answer sheets have been processed, the program prints out 
+    the total punishment, which is the sum of the maximum possible punishments 
+    for all the failed students.
+
+
+    Team Members:
+    Name: Amlan Deep Mohapatra, ID number 2021AAPS1330H 
+    Name: Manas Ashwin, ID number 2021B4AA1908H
+    Name: Jaskirat Singh Kalra, ID number 2021A3PSH
+*/
 #include <iostream>
 #include <stack>
 
