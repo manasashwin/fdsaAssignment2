@@ -3,17 +3,37 @@
 
 using namespace std;
 
+stack<int> answer_sheets;
+int maxInStackAndPop(){
+    stack<int> s2;
+    int maxN = 0;
+    while(!answer_sheets.empty()){
+        maxN = max(answer_sheets.top(), maxN);
+        s2.push(answer_sheets.top());
+        answer_sheets.pop();
+    }
+    bool removed = true;
+    while (!s2.empty()){
+        if(s2.top()==maxN && removed)
+        {
+            removed = false;
+            s2.pop();
+            continue;
+        }
+        answer_sheets.push(s2.top());
+        s2.pop();
+    }
+    return maxN;
+}
+
 int main() {
-    cout<< "Enter number of Test cases :";
     int t;
     cin >> t;
 
     while (t--) {
-        cout<<"Enter number of answer sheets :";
         int n;
         cin >> n;
 
-        stack<int> answer_sheets;
         int total_punishment = 0;
 
         for (int i = 0; i < n; i++) {
@@ -23,8 +43,7 @@ int main() {
             if (score > 33) {
                 answer_sheets.push(score);
             } else if (!answer_sheets.empty()) {
-                total_punishment += answer_sheets.top();
-                answer_sheets.pop();
+                total_punishment += maxInStackAndPop();
             }
 
         }
